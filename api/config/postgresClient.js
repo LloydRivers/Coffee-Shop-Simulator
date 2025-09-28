@@ -1,6 +1,6 @@
-const { Client } = require("pg");
+const { Pool } = require("pg");
 
-const client = new Client({
+const pool = new Pool({
   user: "postgres",
   host: "postgres",
   database: "devdb",
@@ -10,12 +10,13 @@ const client = new Client({
 
 async function connectPostGres() {
   try {
-    await client.connect();
+    const client = await pool.connect();
     console.log("Postgres connected");
+    client.release();
   } catch (err) {
     console.error("DB connection error", err);
     throw err;
   }
 }
 
-module.exports = { client, connectPostGres };
+module.exports = { pool, connectPostGres };
