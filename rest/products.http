@@ -1,0 +1,6 @@
+### Get all products
+GET http://localhost:3333/api/products
+Accept: application/json
+
+###
+

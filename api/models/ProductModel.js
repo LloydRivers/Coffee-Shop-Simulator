@@ -1,4 +1,5 @@
-import pool from "../config/postgresClient.js";
+// models/ProductModel.js
+const { pool } = require("../config/postgresClient");
 
 class ProductModel {
   static async findAll() {
@@ -7,4 +8,4 @@ class ProductModel {
   }
 }
 
-export default ProductModel;
+module.exports = ProductModel;

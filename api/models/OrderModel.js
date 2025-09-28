@@ -1,4 +1,5 @@
-import pool from "../config/postgresClient.js";
+// models/OrderModel.js
+const { pool } = require("../config/postgresClient");
 
 class OrderModel {
   static async findAll() {
@@ -15,6 +16,7 @@ class OrderModel {
       payment_method,
       status,
     } = orderData;
+
     const result = await pool.query(
       `INSERT INTO orders (order_id, customer_id, items, total_price, payment_method, status)
        VALUES ($1, $2, $3, $4, $5, $6)
@@ -28,8 +30,9 @@ class OrderModel {
         status,
       ]
     );
+
     return result.rows[0];
   }
 }
 
-export default OrderModel;
+module.exports = OrderModel;

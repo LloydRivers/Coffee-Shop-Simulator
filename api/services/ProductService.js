@@ -1,4 +1,5 @@
-import ProductModel from "../models/ProductModel.js";
+// services/ProductService.js
+const ProductModel = require("../models/ProductModel");
 
 class ProductService {
   static async getAllProducts() {
@@ -6,4 +7,4 @@ class ProductService {
   }
 }
 
-export default ProductService;
+module.exports = ProductService;

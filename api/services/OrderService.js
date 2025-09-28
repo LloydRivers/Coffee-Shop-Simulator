@@ -1,4 +1,5 @@
-import OrderModel from "../models/OrderModel.js";
+// services/OrderService.js
+const OrderModel = require("../models/OrderModel");
 
 class OrderService {
   static async getAllOrders() {
@@ -10,4 +11,4 @@ class OrderService {
   }
 }
 
-export default OrderService;
+module.exports = OrderService;
