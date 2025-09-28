@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   api:
     build: ./api
@@ -15,6 +14,7 @@ services:
         condition: service_healthy
     networks:
       - coffee-shop-network
+
   postgres:
     image: postgres:latest
     ports:
@@ -34,6 +34,19 @@ services:
       start_period: 5s
     networks:
       - coffee-shop-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    networks:
+      - coffee-shop-network
+
   redis:
     image: redis:6.2-alpine
     restart: always
@@ -44,9 +57,11 @@ services:
       - redis:/data
     networks:
       - coffee-shop-network
+
 volumes:
   pgdata:
   redis:
+
 networks:
   coffee-shop-network:
     driver: bridge
