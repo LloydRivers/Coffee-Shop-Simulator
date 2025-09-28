@@ -1,4 +1,4 @@
-import pool from "./db.js";
+import pool from "../config/postgresClient.js";
 
 class ProductModel {
   static async findAll() {
