@@ -2,10 +2,12 @@
   "name": "api",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-  },
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "dev": "nodemon index.js",
+  "up:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml up -d",
+  "down:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml down"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
