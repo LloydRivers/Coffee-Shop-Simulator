@@ -2,12 +2,16 @@
   "name": "api",
   "version": "1.0.0",
   "main": "server.js",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "dev": "nodemon index.js",
-  "up:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml up -d",
-  "down:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml down"
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "up:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml up -d",
+    "down:all": "docker-compose -f ../docker-compose.yml -f ../docker-compose.monitoring.yml down",
+    "load:quick": "docker run --rm --network coffee-shop-simulator_coffee-shop-network -v ../scripts:/scripts curlimages/curl:latest sh /scripts/load.sh",
+    "load:medium": "docker run --rm --network coffee-shop-simulator_coffee-shop-network -v ../scripts:/scripts -e REQUESTS=200 -e SLEEP_SEC=0.05 curlimages/curl:latest sh /scripts/load.sh",
+    "load:duration": "docker run --rm --network coffee-shop-simulator_coffee-shop-network -v ../scripts:/scripts -e DURATION=30 -e SLEEP_SEC=0.1 curlimages/curl:latest sh /scripts/load.sh",
+    "load:stress": "docker run --rm --network coffee-shop-simulator_coffee-shop-network -v ../scripts:/scripts -e REQUESTS=500 -e SLEEP_SEC=0.01 curlimages/curl:latest sh /scripts/load.sh"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
