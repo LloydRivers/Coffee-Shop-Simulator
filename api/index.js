@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { connectRedis } = require("./config/redisClient");
 const { connectPostGres } = require("./config/postgresClient");
+const metricsMiddleware = require("./config/promClient");
 const logger = require("./config/logger");
 const cors = require("cors");
 
@@ -10,6 +11,7 @@ const routes = require("./routes/index.js");
 const app = express();
 const port = 3333;
 
+app.use(metricsMiddleware);
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
