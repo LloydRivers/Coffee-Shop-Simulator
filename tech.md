@@ -108,11 +108,6 @@ npm install @opentelemetry/api @opentelemetry/sdk-node @opentelemetry/instrument
 # - coffee-shop-app (our Express app)
 # - prometheus
 # - grafana
-# - elasticsearch
-# - logstash
-# - kibana
-# - jaeger
-# - alertmanager
 ```
 
 ### **Health Checks & Testing**
@@ -134,14 +129,7 @@ coffee-shop-observability/
 │   └── config/
 ├── prometheus/
 │   └── prometheus.yml
-├── grafana/
-│   ├── dashboards/
-│   └── provisioning/
-├── logstash/
-│   └── pipeline/
-│       └── logstash.conf
-└── alertmanager/
-    └── alertmanager.yml
+
 ```
 
 ## What Each Tool Teaches You
@@ -154,31 +142,6 @@ coffee-shop-observability/
 - Dashboard design
 - SLA/SLO monitoring
 
-### **ELK Stack**
-
-- Log aggregation patterns
-- Structured logging
-- Full-text search
-- Log parsing and enrichment
-- Centralized logging architecture
-
-### **Jaeger + OpenTelemetry**
-
-- Distributed tracing concepts
-- Span and trace relationships
-- Performance bottleneck identification
-- Service dependency mapping
-- Request flow visualization
-
-### **AlertManager**
-
-- Alert rule definition
-- Alert routing and grouping
-- Notification channels
-- Alert fatigue prevention
-- Incident response workflows
-
-## Coffee Shop Simulation Features
 
 ### Metrics to Monitor
 
@@ -189,13 +152,6 @@ coffee-shop-observability/
 - Average order processing time
 - Customer queue length
 
-### Logs to Generate
-
-- Order received events
-- Machine status changes
-- Inventory updates
-- Error conditions
-- Performance warnings
 
 ### Traces to Follow
 
@@ -228,5 +184,3 @@ npm install express prom-client winston winston-elasticsearch @opentelemetry/api
 cd ..
 # Create docker-compose.yml and config files
 ```
-
-This setup gives you hands-on experience with the entire modern observability ecosystem. You'll learn how metrics, logs, and traces work together to give you complete visibility into your applications!
